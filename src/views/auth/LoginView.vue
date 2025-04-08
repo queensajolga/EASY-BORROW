@@ -2,8 +2,7 @@
 import { ref } from 'vue'
 
 const theme = ref('light')
-const item1 = [{ title: 'RENTEE' }]
-const item2 = [{ title: 'RENTER' }]
+const items = [{ title: 'RENTEE' }, { title: 'RENTER' }]
 </script>
 
 <template>
@@ -16,8 +15,6 @@ const item2 = [{ title: 'RENTER' }]
         backgroundPosition: 'center',
       }"
     >
-      <v-spacer></v-spacer>
-
       <v-container>
         <v-row class="d-flex justify-center my-6">
           <v-col cols="12" md="6" class="d-flex justify-center align-center">
@@ -26,9 +23,9 @@ const item2 = [{ title: 'RENTER' }]
         </v-row>
       </v-container>
       <h5 class="text-center" style="font-size: 40px">Welcome to</h5>
-      <p class="text-center" style="font-size: 60px">EASY BORROW</p>
-      <p class="text-center" style="font-size: 20px">Share smarter, earn faster.</p>
-
+      <p1 class="text-center" style="font-size: 60px">EASY BORROW</p1>
+      <p2 class="text-center" style="font-size: 20px">Share smarter, earn faster.</p2>
+      <v-spacer class="my-5"></v-spacer>
       <v-main>
         <v-container>
           <v-row class="d-flex justify-center">
@@ -56,25 +53,9 @@ const item2 = [{ title: 'RENTER' }]
                     </v-btn>
                   </template>
 
-                  <v-list bg-color="yellow-darken-1" class="text-center mt-4 rounded-5">
-                    <v-list-item v-for="(item, index1) in item1" :key="index1" :value="index1">
-                      <RouterLink to="/dashboard">
-                        <v-list-item-title class="font-weight-medium">
-                          {{ item.title }}
-
-                          <v-list-item
-                            v-for="(item, index2) in item2"
-                            :key="index2"
-                            :value="index2"
-                          >
-                            <RouterLink to="/renterdashboard">
-                              <v-list-item-title class="font-weight-medium">
-                                {{ item.title }}
-                              </v-list-item-title>
-                            </RouterLink>
-                          </v-list-item>
-                        </v-list-item-title>
-                      </RouterLink>
+                  <v-list class="text-center" bg-color="yellow-darken-1 rounded-lg">
+                    <v-list-item v-for="(item, index) in items" :key="index" :value="index">
+                      <v-list-item-title>{{ item.title }}</v-list-item-title>
                     </v-list-item>
                   </v-list>
                 </v-menu>
