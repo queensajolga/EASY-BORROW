@@ -77,7 +77,7 @@ function onClick() {
 
                       <v-list bg-color="yellow-darken-1" class="text-center mt-4 rounded-5">
                         <v-list-item v-for="(item, index1) in item1" :key="index1" :value="index1">
-                          <RouterLink to="/renteedashboard">
+                          <RouterLink to="/renteedashboard" class="rentee-button">
                             <v-list-item-title class="font-weight-medium">
                               {{ item.title }}
 
@@ -86,7 +86,7 @@ function onClick() {
                                 :key="index2"
                                 :value="index2"
                               >
-                                <RouterLink to="/renterdashboard">
+                                <RouterLink to="/renterdashboard" class="renter-button">
                                   <v-list-item-title class="font-weight-medium">
                                     {{ item.title }}
                                   </v-list-item-title>
@@ -113,7 +113,7 @@ function onClick() {
 
                   <h5 class="text-center" style="font-size: larger">
                     Don't have an account?
-                    <RouterLink to="/register"> REGISTER </RouterLink>
+                    <RouterLink to="/register" class="register-button">REGISTER </RouterLink>
                   </h5>
                 </v-col>
               </v-row>
@@ -136,5 +136,21 @@ function onClick() {
   background-image: url('/public/images/background.jpg');
   background-size: cover;
   background-position: center;
+}
+.rentee-button {
+  color: black;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+.renter-button {
+  color: black;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+.register-button {
+  color: black;
+  text-decoration: none;
 }
 </style>

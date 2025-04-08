@@ -29,15 +29,19 @@ function onClick() {
             backgroundPosition: 'center',
           }"
         >
-          <v-spacer></v-spacer>
+          <v-divider class="my-10"></v-divider>
+          <v-btn prepend-icon="mdi-arrow-left-circle" width="200"
+            ><RouterLink to="/" class="back-button">BACK</RouterLink></v-btn
+          >
           <v-container>
-            <v-row class="d-flex justify-center my-6">
+            <v-row class="d-flex justify-center">
               <v-col cols="12" md="6" class="d-flex justify-center align-center">
                 <h1 class="text-center" style="font-size: 40px">Welcome to Easy Borrow</h1>
               </v-col>
             </v-row>
             <p class="text-center">DASHBOARD</p>
           </v-container>
+          <v-spacer class="my-5"></v-spacer>
         </v-app>
       </v-responsive>
     </v-app>
@@ -55,5 +59,9 @@ function onClick() {
   background-image: url('/public/images/background.jpg');
   background-size: cover;
   background-position: center;
+}
+.back-button {
+  color: black;
+  text-decoration: none;
 }
 </style>

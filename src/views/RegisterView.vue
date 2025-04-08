@@ -101,13 +101,15 @@ function onClick() {
                 class="font-weight-bold mt-4 rounded-pill"
                 type="submit"
                 block
-                >REGISTER</v-btn
+                ><RouterLink to="/" class="link-button">REGISTER</RouterLink></v-btn
               >
 
               <v-divider class="my-5"></v-divider>
 
               <h5 class="text-center" style="font-size: larger">
-                Already have an account?<RouterLink to="/"> Click here to LOGIN</RouterLink>
+                Already have an account?<RouterLink to="/" class="account-button">
+                  Click here to LOGIN</RouterLink
+                >
               </h5>
             </v-container>
           </v-main>
@@ -128,5 +130,15 @@ function onClick() {
   background-image: url('/public/images/background.jpg');
   background-size: cover;
   background-position: center;
+}
+.link-button {
+  color: black;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+.account-button {
+  color: black;
+  text-decoration: none;
 }
 </style>
