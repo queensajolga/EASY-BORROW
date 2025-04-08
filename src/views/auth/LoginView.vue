@@ -2,95 +2,125 @@
 import { ref } from 'vue'
 
 const theme = ref('light')
-const items = [{ title: 'RENTEE' }, { title: 'RENTER' }]
+const item1 = [{ title: 'RENTEE' }]
+const item2 = [{ title: 'RENTER' }]
+
+function onClick() {
+  theme.value = theme.value === 'light' ? 'dark' : 'light'
+}
 </script>
 
 <template>
   <v-responsive class="border rounded">
-    <v-app
-      :theme="theme"
-      :style="{
-        backgroundImage: `url('/public/images/background.jpg')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }"
-    >
-      <v-container>
-        <v-row class="d-flex justify-center my-6">
-          <v-col cols="12" md="6" class="d-flex justify-center align-center">
-            <v-img :width="400" aspect-ratio="16/0" cover src="./images/EBlogo.png"></v-img>
-          </v-col>
-        </v-row>
-      </v-container>
-      <h5 class="text-center" style="font-size: 40px">Welcome to</h5>
-      <p1 class="text-center" style="font-size: 60px">EASY BORROW</p1>
-      <p2 class="text-center" style="font-size: 20px">Share smarter, earn faster.</p2>
-      <v-spacer class="my-5"></v-spacer>
-      <v-main>
-        <v-container>
-          <v-row class="d-flex justify-center">
-            <v-col cols="12" md="6">
-              <v-text-field label="Email" variant="outlined" bg-color="yellow-darken-1 rounded-lg">
-              </v-text-field>
-              <v-text-field
-                label="Password"
-                variant="outlined"
-                type="password"
-                bg-color="yellow-darken-1 rounded-lg"
-              >
-              </v-text-field>
-              <p class="text-center font-weight-medium" style="font-size: 15px">Forgot password?</p>
+    <v-app :theme="theme">
+      <v-app-bar class="px-3">
+        <v-spacer></v-spacer>
 
-              <div class="text-center">
-                <v-menu open-on-hover>
-                  <template v-slot:activator="{ props }">
-                    <v-btn
-                      size="large"
-                      color="yellow-darken-1"
-                      class="font-weight-bold mt-6 rounded-pill"
-                      v-bind="props"
-                      >LOGIN AS
-                    </v-btn>
-                  </template>
+        <v-btn
+          :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
+          slim
+          @click="onClick"
+        ></v-btn>
+      </v-app-bar>
+      <v-responsive class="border rounded">
+        <v-app
+          :theme="theme"
+          :style="{
+            backgroundImage: `url('/public/images/')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }"
+        >
+          <v-container>
+            <v-row class="d-flex justify-center my-6">
+              <v-col cols="12" md="6" class="d-flex justify-center align-center">
+                <v-img :width="400" aspect-ratio="16/0" cover src="./images/EBlogo.png"></v-img>
+              </v-col>
+            </v-row>
+          </v-container>
 
-                  <v-list class="text-center" bg-color="yellow-darken-1 rounded-lg">
-                    <v-list-item v-for="(item, index) in items" :key="index" :value="index">
-                      <router-link
-                        to="/renteedashboard"
-                        style="text-decoration: none; color: inherit"
-                      >
-                        <v-list-item-title>{{ item.title }}</v-list-item-title>
-                      </router-link>
-                      <router-link
-                        to="/renterdashboard"
-                        style="text-decoration: none; color: inherit"
-                      >
-                      </router-link>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
-              </div>
-              <v-btn
-                size="large"
-                color="yellow-lighten-2"
-                class="font-weight-bold mt-4 rounded-pill"
-                prepend-icon="mdi-google"
-                width="400"
-                type="submit"
-                block
-                >Sign in with Google</v-btn
-              >
+          <h5 class="text-center" style="font-size: 40px">Welcome to</h5>
+          <p1 class="text-center" style="font-size: 60px">EASY BORROW</p1>
+          <p2 class="text-center" style="font-size: 20px">Share smarter, earn faster.</p2>
+          <v-spacer class="my-5"></v-spacer>
+          <v-main>
+            <v-container>
+              <v-row class="d-flex justify-center">
+                <v-col cols="12" md="6">
+                  <v-text-field
+                    label="Email"
+                    variant="outlined"
+                    bg-color="yellow-darken-1 rounded-lg"
+                  >
+                  </v-text-field>
+                  <v-text-field
+                    label="Password"
+                    variant="outlined"
+                    type="password"
+                    bg-color="yellow-darken-1 rounded-lg"
+                  >
+                  </v-text-field>
+                  <p class="text-center font-weight-medium" style="font-size: 15px">
+                    Forgot password?
+                  </p>
 
-              <v-divider class="my-5"></v-divider>
+                  <div class="text-center">
+                    <v-menu open-on-hover>
+                      <template v-slot:activator="{ props }">
+                        <v-btn
+                          color="yellow-darken-1"
+                          class="font-weight-bold mt-6 rounded-pill"
+                          v-bind="props"
+                          >LOG IN AS
+                        </v-btn>
+                      </template>
 
-              <h5 class="text-center" style="font-size: larger">
-                Don't have an account?
-                <RouterLink to="/register"> REGISTER </RouterLink>
-              </h5>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-main>
+                      <v-list bg-color="yellow-darken-1" class="text-center mt-4 rounded-5">
+                        <v-list-item v-for="(item, index1) in item1" :key="index1" :value="index1">
+                          <RouterLink to="/renteedashboard">
+                            <v-list-item-title class="font-weight-medium">
+                              {{ item.title }}
+
+                              <v-list-item
+                                v-for="(item, index2) in item2"
+                                :key="index2"
+                                :value="index2"
+                              >
+                                <RouterLink to="/renterdashboard">
+                                  <v-list-item-title class="font-weight-medium">
+                                    {{ item.title }}
+                                  </v-list-item-title>
+                                </RouterLink>
+                              </v-list-item>
+                            </v-list-item-title>
+                          </RouterLink>
+                        </v-list-item>
+                      </v-list>
+                    </v-menu>
+                  </div>
+                  <v-btn
+                    size="large"
+                    color="yellow-lighten-2"
+                    class="font-weight-bold mt-4 rounded-pill"
+                    prepend-icon="mdi-google"
+                    width="400"
+                    type="submit"
+                    block
+                    >Sign in with Google</v-btn
+                  >
+
+                  <v-divider class="my-5"></v-divider>
+
+                  <h5 class="text-center" style="font-size: larger">
+                    Don't have an account?
+                    <RouterLink to="/register"> REGISTER </RouterLink>
+                  </h5>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-main>
+        </v-app>
+      </v-responsive>
     </v-app>
   </v-responsive>
 </template>
