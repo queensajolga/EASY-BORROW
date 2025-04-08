@@ -3,6 +3,7 @@ import LoginView from '@/views/auth/LoginView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import RenteeDashboardView from '@/views/RenteeDashboardView.vue'
 import RenterDashboardView from '@/views/RenterDashboardView.vue'
+import DashboardView from '@/views/DashboardView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/renterdashboard',
       name: 'renterdashboard',
       component: RenterDashboardView,
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: DashboardView,
     },
   ],
 })

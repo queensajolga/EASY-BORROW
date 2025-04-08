@@ -23,7 +23,7 @@ function onClick() {
         <v-app
           :theme="theme"
           :style="{
-            backgroundImage: `url('/public/images/)`,
+            backgroundImage: `url('/public/images/')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }"
@@ -56,7 +56,7 @@ function onClick() {
                     class="font-weight-bold mt-4 rounded-pill"
                     type="submit"
                     block
-                    >LOGIN</v-btn
+                    ><RouterLink to="/dashboard" class="login-button">LOGIN</RouterLink></v-btn
                   >
 
                   <v-divider class="my-5"></v-divider>
@@ -81,5 +81,9 @@ function onClick() {
   background-image: url('/public/images/background.jpg');
   background-size: cover;
   background-position: center;
+}
+.login-button {
+  color: black;
+  text-decoration: none;
 }
 </style>

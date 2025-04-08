@@ -64,4 +64,8 @@ function onClick() {
   color: black;
   text-decoration: none;
 }
+.login-button {
+  color: black;
+  text-decoration: none;
+}
 </style>
