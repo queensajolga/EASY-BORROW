@@ -55,7 +55,17 @@ const items = [{ title: 'RENTEE' }, { title: 'RENTER' }]
 
                   <v-list class="text-center" bg-color="yellow-darken-1 rounded-lg">
                     <v-list-item v-for="(item, index) in items" :key="index" :value="index">
-                      <v-list-item-title>{{ item.title }}</v-list-item-title>
+                      <router-link
+                        to="/renteedashboard"
+                        style="text-decoration: none; color: inherit"
+                      >
+                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                      </router-link>
+                      <router-link
+                        to="/renterdashboard"
+                        style="text-decoration: none; color: inherit"
+                      >
+                      </router-link>
                     </v-list-item>
                   </v-list>
                 </v-menu>
