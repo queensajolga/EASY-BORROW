@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "@vuepic/vue-datepicker": "^11.0.2",
+    "vue-advanced-cropper": "^2.8.9"
+  }
+}
